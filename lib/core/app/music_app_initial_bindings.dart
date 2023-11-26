@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
+import '../../services/api_service.dart';
+import '../../services/audio_service/audio_player_service_impl.dart';
 import '../../shared/features/music_app/presentation/controllers/music_player_controller.dart';
-import '../services/api_service.dart';
-import '../services/audio_service/audio_player_service_impl.dart';
 
 class MusicAppInitialBindings extends Bindings {
   @override
