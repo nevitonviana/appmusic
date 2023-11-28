@@ -12,3 +12,8 @@ class GeneralException implements Exception {
     this.message = "Ocorreu um erro. por favor, tente novamente.",
   });
 }
+
+class PlayerException implements Exception{
+  final String message;
+  PlayerException({required this.message});
+}
