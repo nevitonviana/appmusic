@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../core/app/music_app_colors.dart';
+import 'app_music_error_widget.dart';
+import 'text_widget.dart';
+
 class ScreenWidget extends StatelessWidget {
   final bool isLoading;
   final String? error;
@@ -21,6 +25,17 @@ class ScreenWidget extends StatelessWidget {
       appBar: AppBar(
         title: TextWidget.bold(title),
       ),
+      body: ColoredBox(
+          color: MusicAppColors.primaryColor,
+          child: isLoading || error != null
+              ? Center(
+                  child: isLoading
+                      ? const CircularProgressIndicator()
+                      : AppMusicErrorWidget(
+                          error: error!,
+                        ),
+                )
+              : child),
     );
   }
 }
