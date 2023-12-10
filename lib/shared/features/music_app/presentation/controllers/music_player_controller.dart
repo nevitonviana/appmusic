@@ -13,11 +13,11 @@ class MusicPlayerController with SnackBarMixin {
 
   MusicPlayerController(AudioPlayService audioPlay) : _audioPlay = audioPlay {
     _audioCompleteSubscription = _audioPlay.onAudioComplete().listen((_) {
-      skipTrap();
+      skipTrack();
     });
   }
 
-  StreamSubscription _audioCompleteSubscription;
+  StreamSubscription? _audioCompleteSubscription;
 
   final RxBool isPlaying = false.obs;
 
@@ -116,7 +116,7 @@ class MusicPlayerController with SnackBarMixin {
   }
 
   void dispose() {
-    _audioCompleteSubscription.cancel();
+    _audioCompleteSubscription?.cancel();
   }
 
   Future<void> loadCurrentMusicDuration() async {
