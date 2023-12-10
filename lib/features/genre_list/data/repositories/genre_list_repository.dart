@@ -13,7 +13,8 @@ class GenreListRepository {
 
   Future<Either<Failure, List<GenreModel>>> getGenreList() async {
     try {
-      final genres = await _apiService.getGenre();
+      final genres = await _apiService.getGenres();
+
       return Right(genres);
     } on ApiException catch (apiException) {
       return Left(GetGenreListFailure(apiException.message));

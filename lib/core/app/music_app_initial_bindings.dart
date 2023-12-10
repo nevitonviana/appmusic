@@ -13,7 +13,9 @@ class MusicAppInitialBindings extends Bindings {
     Get.put(
       ApiService(
         BaseOptions(
-          baseUrl: DotEnvService.getApiBaseUrl,
+          baseUrl:
+              "https://my-json-server.typicode.com/nevitonviana/api/genres",
+          //DotEnvService.getApiBaseUrl,
           connectTimeout: const Duration(seconds: 10),
           receiveTimeout: const Duration(
             seconds: 10,

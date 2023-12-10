@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:music_app/core/app/music_app_colors.dart';
 
 import '../../features/genre_details/presentation/bindings/genre_details_bindings.dart';
-import '../../features/genre_details/presentation/screens/genre_details_screens.dart';
+import '../../features/genre_details/presentation/screens/genre_details_screen.dart';
 import '../../features/genre_list/presentation/bindings/genre_list_bindings.dart';
 import '../../features/genre_list/presentation/screens/genre_list_screen.dart';
 
@@ -19,8 +19,8 @@ class MusicAppMaterial {
           binding: GenreListBindings(),
           children: [
             GetPage(
-              name: GenreDetailsScreens.routeName,
-              page: () => const GenreDetailsScreens(),
+              name: GenreDetailsScreen.routeName,
+              page: () =>  const GenreDetailsScreen(),
               binding: GenreDetailsBindings(),
             ),
           ],

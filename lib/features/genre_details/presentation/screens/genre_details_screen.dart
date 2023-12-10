@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class GenreDetailsScreens extends StatelessWidget {
+class GenreDetailsScreen extends StatelessWidget {
   static const routeName = "/genre-details";
 
-  const GenreDetailsScreens({super.key});
+  const GenreDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

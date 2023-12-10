@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_overrides
+// ignore_for_file: unnecessary_overrides, duplicate_ignore
 
 import 'package:get/get.dart';
 
@@ -7,6 +7,7 @@ import '../../../../core/mixins/screen_loading_and_error_mixin.dart';
 import '../../../../shared/models/genre_model.dart';
 import '../../data/repositories/genre_list_repository.dart';
 
+// ignore: duplicate_ignore
 class GenreListController extends GetxController
     with ScreenLoadingAndErrorMixin {
   final GenreListRepository _genreListRepository;
@@ -19,6 +20,7 @@ class GenreListController extends GetxController
   // ignore: unnecessary_overrides
   @override
   void onInit() {
+    getGenreList();
     super.onInit();
   }
 

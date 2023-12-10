@@ -10,17 +10,18 @@ import '../errors/exception.dart';
 class ApiService extends DioForNative {
   ApiService([super.baseOptions]);
 
-  Future<List<GenreModel>> getGenre() async {
+  Future<List<GenreModel>> getGenres() async {
     try {
       const endPoint = "/genres";
-
-      final response = await get(endPoint);
+      final response = await Dio().get(
+          "https://my-json-server.typicode.com/nevitonviana/api/genres");
+      //await get( "https://my-json-server.typicode.com/nevitonviana/api/genres");
       return (response.data as List)
           .map((genre) => GenreModel.fromMap(genre))
           .toList();
     } on DioException catch (dioError, stackTrace) {
       log(
-        "erro ao fazer o get dos generos musicas",
+        "erro ao fazer o get dos generos musicas1",
         error: dioError,
         stackTrace: stackTrace, //mostra qual linha do codigo esto o error
       );
@@ -30,7 +31,7 @@ class ApiService extends DioForNative {
       );
     } catch (error, stackTrace) {
       log(
-        "erro ao fazer o get dos generos musicas",
+        "erro ao fazer o get dos generos musicas3",
         error: error,
         stackTrace: stackTrace, //mostra qual linha do codigo esto o error
       );
