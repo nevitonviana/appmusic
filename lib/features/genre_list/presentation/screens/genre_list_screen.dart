@@ -22,6 +22,8 @@ class GenreListScreen extends StatelessWidget {
         return ScreenWidget(
           isLoading: false,
           title: "Lista de Generos",
+          error: genreListCtrl.getError,
+          onTryAgain: () => genreListCtrl.getGenreList(),
           child: Column(
             children: [
               Expanded(
