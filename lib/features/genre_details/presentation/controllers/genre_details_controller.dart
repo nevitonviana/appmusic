@@ -1,3 +1,3 @@
 class GenreDetailsController{
-
+final GerneDetailsRepository _gerneDetailsRepository;
 }
