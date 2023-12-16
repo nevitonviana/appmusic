@@ -35,32 +35,35 @@ class MiniMusicPlayer extends StatelessWidget {
                 horizontal: 25,
                 vertical: 8,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        ImageWidget(
-                          width: 50,
-                          height: 50,
-                          img:
-                              musicPlayerController.getCurrentPlayingMusic?.img,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: TextWidget.normal(musicPlayerController
-                                  .getCurrentPlayingMusic?.title ??
-                              "Musica 1"),
-                        ),
-                      ],
+              child: Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          ImageWidget(
+                            width: 50,
+                            height: 50,
+                            img: musicPlayerController
+                                .getCurrentPlayingMusic?.img,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: TextWidget.normal(musicPlayerController
+                                    .getCurrentPlayingMusic?.title ??
+                                "Musica 1"),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  PlayPauseButtonWidget(
-                    musicUrl: musicPlayerController.getCurrentPlayingMusic?.url,
-                    playPauseButtonSize: PlayPauseButtonSize.small,
-                  ),
-                ],
+                    PlayPauseButtonWidget(
+                      musicUrl:
+                          musicPlayerController.getCurrentPlayingMusic?.url,
+                      playPauseButtonSize: PlayPauseButtonSize.small,
+                    ),
+                  ],
+                ),
               ),
             ),
             StreamBuilder(
