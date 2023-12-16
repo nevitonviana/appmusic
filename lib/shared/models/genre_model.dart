@@ -13,7 +13,7 @@ class GenreModel {
     return GenreModel(
       img: map['img'],
       title: map['title'] ?? "",
-      searchString: map['searchStrong'] ?? '',
+      searchString: map['searchString'] ?? '',
     );
   }
 }

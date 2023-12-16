@@ -13,8 +13,8 @@ class ApiService extends DioForNative {
   Future<List<GenreModel>> getGenres() async {
     try {
       const endPoint = "/genres";
-      final response = await Dio().get(
-          "https://my-json-server.typicode.com/nevitonviana/api/genres");
+      final response = await Dio()
+          .get("https://my-json-server.typicode.com/nevitonviana/api/genres");
       //await get( "https://my-json-server.typicode.com/nevitonviana/api/genres");
       return (response.data as List)
           .map((genre) => GenreModel.fromMap(genre))
@@ -41,9 +41,13 @@ class ApiService extends DioForNative {
 
   Future<GenreDetailModel> getGenreDetails({required String genre}) async {
     try {
-      final endPoint = "/genres/$genre";
-      final response = await get(endPoint);
-
+      // final endPoint = "/genres/$genre";
+      // final response = await get(endPoint);
+      print("object");
+      print(genre);
+      final response = await Dio()
+          .get("https://my-json-server.typicode.com/nevitonviana/api/$genre");
+      print(response);
       return GenreDetailModel.fromMap(response.data);
     } on DioException catch (dioError, stackTrace) {
       log(

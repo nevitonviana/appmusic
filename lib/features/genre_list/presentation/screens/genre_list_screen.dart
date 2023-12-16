@@ -34,9 +34,10 @@ class GenreListScreen extends StatelessWidget {
                       final genre = genreListCtrl.genres[index];
                       return InkWell(
                         onTap: () => Get.toNamed(
-                            '${GenreListScreen.routeName}${GenreDetailsScreen.routeName}'),
+                            '${GenreListScreen.routeName}${GenreDetailsScreen.routeName}',
+                            arguments: genre),
                         child: ImgAndTitleRowWidget(
-                          title: genre.title,
+                          title: genre.title.toString(),
                           heroTag: genre.title,
                           img: genre.img,
                         ),

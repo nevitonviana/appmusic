@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/exception.dart';
@@ -18,8 +20,10 @@ class GenreDetailsRepository {
 
       return Right(genreDetails);
     } on ApiException catch (apiException) {
+      log("", error: apiException.message);
       return Left(GetGenreDetailFailure(apiException.message));
     } on GeneralException catch (genreException) {
+      log(genre.toString());
       return Left(GetGenreDetailFailure(genreException.message));
     }
   }

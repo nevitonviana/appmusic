@@ -25,7 +25,6 @@ class GenreDetailsController extends GetxController
   void onInit() {
     final genre = Get.arguments as GenreModel;
     loadGenreDetails(genre.searchString);
-
     super.onInit();
   }
 
