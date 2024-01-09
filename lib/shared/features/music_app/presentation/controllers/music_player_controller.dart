@@ -2,11 +2,13 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_rx/get_rx.dart';
-
+import 'package:get/get.dart';
 import '../../../../../core/mixins/snack_bar_mixin.dart';
+
 import '../../../../../core/services/audio_service/audio_play_service.dart';
 import '../../../../models/music_model.dart';
+import '../widgets/music_player_widget.dart';
+import '/core/extensions/media_query_extension.dart';
 
 class MusicPlayerController with SnackBarMixin {
   final AudioPlayService _audioPlay;
@@ -133,5 +135,20 @@ class MusicPlayerController with SnackBarMixin {
     showMusicPlayer(context);
   }
 
-  Future<void> showMusicPlayer(BuildContext context) async {}
+  Future<void> showMusicPlayer(BuildContext context) async {
+    loadCurrentMusicDuration();
+    showBottomSheet(
+      context: context,
+      builder: (_) => Obx(
+        () => MusicPlayerWidget(
+          music: _playlistPlaying[getCurrentMusicIndexPlaying ?? 0],
+        ),
+      ),
+      constraints: BoxConstraints(
+        maxHeight: context.getHeight - context.getTopPadding,
+      ),
+      backgroundColor: Colors.transparent,
+      enableDrag: true,
+    );
+  }
 }
