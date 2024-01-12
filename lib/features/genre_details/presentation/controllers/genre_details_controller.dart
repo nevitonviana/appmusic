@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:music_app/shared/models/music_model.dart';
 
 import '../../../../core/errors/failures.dart';
 import '../../../../core/mixins/screen_loading_and_error_mixin.dart';
@@ -47,9 +46,9 @@ class GenreDetailsController extends GetxController
 
     setLoadingToFalse();
 
-    MusicModel? getMusicByIndex(int index) => genreDetail?.musics[index];
+    // MusicModel? getMusicByIndex(int index) => genreDetail?.musics[index];
 
     // List<MusicModel>? get getMusic => genreDetail?.musics;
-    List<MusicModel>? getMusic = genreDetail?.musics;
+    // List<MusicModel>? getMusic = genreDetail?.musics;
   }
 }

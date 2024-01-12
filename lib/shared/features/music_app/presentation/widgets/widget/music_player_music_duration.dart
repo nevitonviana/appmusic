@@ -28,29 +28,29 @@ class _MusicPlayerMusicDurationState extends State<MusicPlayerMusicDuration> {
             musicPlayerController.currentMusicDuration.value;
         return Column(
           children: [
-            // Obx(
-            //   () => Slider(
-            //     value: (sliderValuerRx.value ?? seconds / widget.duration)
-            //         .clamp(0.1),
-            //     onChanged: (double sliderValue) async {
-            //       await musicPlayerController.seek(
-            //         (sliderValue * widget.duration).floor(),
-            //       );
-            //       sliderValuerRx.value = null;
-            //     },
-            //     activeColor: MusicAppColors.secondaryColor,
-            //     inactiveColor: Colors.grey.shade600,
-            //   ),
-            // ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     TextWidget.small(seconds),
-            //     TextWidget.small(
-            //       "- ${(widget.duration - seconds)}",
-            //     ),
-            //   ],
-            // )
+            Obx(
+              () => Slider(
+                value: (sliderValuerRx.value ?? seconds / widget.duration)
+                    .clamp(0.1),
+                onChanged: (double sliderValue) async {
+                  await musicPlayerController.seek(
+                    (sliderValue * widget.duration).floor(),
+                  );
+                  sliderValuerRx.value = null;
+                },
+                activeColor: MusicAppColors.secondaryColor,
+                inactiveColor: Colors.grey.shade600,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextWidget.small(seconds),
+                TextWidget.small(
+                  "- ${(widget.duration - seconds)}",
+                ),
+              ],
+            )
           ],
         );
       },
